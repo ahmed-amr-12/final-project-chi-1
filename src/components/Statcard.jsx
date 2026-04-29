@@ -1,10 +1,27 @@
-export default function StatCard({ title, value, color }) {
+
+function StatCard({ title, value, icon, danger }) {
   return (
-    <div className="bg-white p-5 rounded-xl shadow-sm">
-      <p className="text-gray-500">{title}</p>
-      <h2 className={`text-2xl font-bold ${color}`}>
-        {value}
-      </h2>
-    </div>
+    <Card>
+      <CardContent>
+        <div className="flex justify-between items-center">
+          
+          <div>
+            <p className="text-sm text-gray-400">{title}</p>
+            <h2 className="text-xl font-bold text-white">{value}</h2>
+          </div>
+
+          <div
+            className={`p-3 rounded-xl ${
+              danger
+                ? "bg-red-500/20 text-red-400"
+                : "bg-blue-500/20 text-blue-400"
+            }`}
+          >
+            {icon}
+          </div>
+
+        </div>
+      </CardContent>
+    </Card>
   );
 }
